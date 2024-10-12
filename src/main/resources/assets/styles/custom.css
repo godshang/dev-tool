@@ -1,0 +1,5 @@
+/* This is dummy file to clear user agent stylesheet. */
+.text-area {
+    -fx-text-fill: #a11;
+    -fx-font-family: 'DejaVu Sans Mono';
+}
