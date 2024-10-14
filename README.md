@@ -2,7 +2,7 @@
 
 ## Overview
 
-Collection of handy tools for developers.
+DevTool provides a collection of handy tools for developers, built on JavaFX.
 
 ![alt](docs/images/screenshot-overview.png)
 

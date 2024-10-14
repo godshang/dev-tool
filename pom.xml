@@ -380,13 +380,38 @@
             <activation>
                 <os>
                     <!--<family>unix</family>-->
-                    <family>Linux</family>
+                    <name>Linux</name>
                 </os>
             </activation>
             <properties>
                 <app.icon>${project.build.directory}${file.separator}icons${file.separator}app-icon.png</app.icon>
-                <app.type>app-image</app.type>
             </properties>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>io.github.wiverson</groupId>
+                        <artifactId>jtoolprovider-plugin</artifactId>
+                        <version>1.0.34</version>
+                        <executions>
+                            <execution>
+                                <id>create-linux-deb</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>java-tool</goal>
+                                </goals>
+                                <configuration>
+                                    <toolName>jpackage</toolName>
+                                    <removeDirectories>${build.package.tempDir}</removeDirectories>
+                                    <args>
+                                        <arg>@${build.package.scriptsDir}${file.separator}args-base.txt</arg>
+                                        <arg>@${build.package.scriptsDir}${file.separator}args-linux-deb.txt</arg>
+                                    </args>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
         </profile>
         <profile>
             <id>mac-active</id>
@@ -406,7 +431,7 @@
                         <version>1.0.34</version>
                         <executions>
                             <execution>
-                                <id>create-msi-installer</id>
+                                <id>create-mac-dmg</id>
                                 <phase>package</phase>
                                 <goals>
                                     <goal>java-tool</goal>
