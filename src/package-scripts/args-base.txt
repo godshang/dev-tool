@@ -1,0 +1,9 @@
+--name "${app.name}"
+--icon "${app.icon}"
+--app-version "${app.version}"
+--temp "${build.package.tempDir}"
+--verbose
+--module "${app.module}/${app.launcher}"
+--module-path "${build.dependenciesDir}"
+--runtime-image "${build.package.runtimeImageDir}"
+--dest "${build.package.appImageDir}"
